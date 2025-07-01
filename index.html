@@ -25,8 +25,10 @@
                         WhatsApp
                     </a>
                 </div>
-                <div class="product-card">
-                    <img src="../img/1000117980.jpg" alt="Silla de Madera Clásica">
+                 <!-- llama un carrusel de imágenes (o slider). -->
+               <div class="product-card" data-images='["img/1000109403.jpg", "img/1000117980.jpg", "img/1000109394.jpg"]'>
+                    <img src="img/1000118696.jpg" alt="Producto 1" loading="lazy">
+
                     <h3>Silla Clásica de Pino</h3>
                     <p class="description">Diseño ergonómico y duradero, perfecto para cualquier estilo.</p>
                     <p class="price">Precio: 250 Bs</p>
@@ -117,27 +119,49 @@
         <p>&copy; 2025 Carpintería Boliviana. Todos los derechos reservados.</p>
         <p>Contacto: info@carpinteriaboliviana.com | Tel: +591 7XXXXXXX</p>
     </footer>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
+    <!-- script de animaciones y demas -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.querySelector(".close");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
 
-    // Agrega evento a todas las imágenes de productos
-    document.querySelectorAll(".product-card img").forEach(img => {
-        img.addEventListener("click", () => {
+    let currentImages = [];
+    let currentIndex = 0;
+
+    // Abrir modal con múltiples imágenes
+    document.querySelectorAll(".product-card").forEach(card => {
+        const imgElement = card.querySelector("img");
+        const images = JSON.parse(card.getAttribute("data-images"));
+
+        imgElement.addEventListener("click", () => {
+            currentImages = images;
+            currentIndex = 0;
+            showImage(currentIndex);
             modal.style.display = "flex";
-            modalImg.src = img.src;
-            modalImg.alt = img.alt;
         });
     });
 
-    // Cerrar al hacer clic en la X
+    function showImage(index) {
+        modalImg.src = currentImages[index];
+    }
+
     closeBtn.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    // Cerrar al hacer clic fuera de la imagen
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        showImage(currentIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        showImage(currentIndex);
+    });
+
     modal.addEventListener("click", (e) => {
         if (e.target === modal) {
             modal.style.display = "none";
@@ -146,11 +170,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
 </body>
 <!-- Modal para ampliar imagen -->
 <div id="image-modal" class="modal">
     <span class="close">&times;</span>
-    <img class="modal-content" id="modal-img">
+    <button id="prev-btn">&#10094;</button>
+    <img id="modal-img" class="modal-content" src="">
+    <button id="next-btn">&#10095;</button>
 </div>
+
 
 </html>
