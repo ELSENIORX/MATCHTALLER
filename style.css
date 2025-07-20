@@ -542,7 +542,7 @@ header {
 }
 .topic{
     color:orangered ;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
 }
 #prev,
 #next {
