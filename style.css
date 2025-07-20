@@ -482,13 +482,16 @@ header nav a{
     .carousel .list .item:nth-child(2) .introduce{
         width: 50%;
     }
-    
+    /* posicion tamaño de imagen modo celular */
     .carousel .list .item img{
-        width: 60%;
+        width: 80%;
+        position: relative;
+        margin-left: 45%;
     }
     .carousel.showDetail .list .item:nth-child(2) .detail{
         backdrop-filter: blur(10px);
         font-size: small;
+        width: 35%;
     }
     .carousel .list .item:nth-child(2) .introduce .des,
     .carousel.showDetail .list .item:nth-child(2) .detail .des{
@@ -580,5 +583,10 @@ header {
 .seeMore{
     color: #ffd000;
 }
-
+.specifications-text-title{
+    color: #ffd000;
+}
+.specifications-text{
+    color: #ffffff;
+}
 
