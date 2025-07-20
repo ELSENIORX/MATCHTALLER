@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" class="logo-img">
+        </div>
+        <nav>
+            <a class="textnav" href="inicio.html">inicio</a>
+            <a class="textnav" href="index.html">productos</a>
+          
+        </nav>
+    </header>
+    <main>
+        <section class="hero-carousel">
+            <div class="carousel-container">
+                <img src="images/princ1.jpg" alt="Mueble Moderno 1" class="carousel-image active">
+                <img src="images/princ.jpg" alt="Mueble Clásico 2" class="carousel-image">
+                <img src="images/pinci2.jpg" alt="Mueble Rústico 3" class="carousel-image">
+                <img src="images/princ3.jpg" alt="Mueble Minimalista 4" class="carousel-image">
+                <div class="carousel-text">
+                    <h2 style="color: yellow;">Mach Taller</h2>
+                    <p>Transforma tu taller con el mejor estilo</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="product-category">
+            <h2>Muebles</h2>
+            <div class="product-grid">
+                <div class="product-card"
+                    data-images='["images/exibidorherra6.jpeg", "images/exibidorherra5.jpeg", "images/exibidorherra4.jpeg", "images/exibidorherra3.jpeg","images/exibidorherra2.jpeg"]'>
+                    <img src="images/exibidorherra6.jpeg" alt="Producto 1" loading="lazy">
+
+
+                    <h3>EXHIBIDOR PARA HERRAMIENTAS </h3>
+                    <p class="description">medidas 2 MTRS de alto 95 CM de ancho Piso madera Masisa 45 × 95</p>
+                    <p class="price">Precio: 1200 Bs</p>
+                    <a href="https://wa.me/59171793385?text=¡Hola!%20Me%20interesa%20la%20Mesa%20de%20Comedor%20Rústica."
+                        target="_blank" class="whatsapp-button">
+                        WhatsApp
+                    </a>
+                </div>
+                <!-- llama un carrusel de imágenes (o slider). -->
+                <div class="product-card"
+                    data-images='["images/mesatrabajo.jpeg", "images/mesatrabajo2.jpeg", "images/mesatrabajo3.jpeg"]'>
+                    <img src="images/mesatrabajo2.jpeg" alt="Producto 1" loading="lazy">
+
+                    <h3>MESA DE TRABAJO</h3>
+                    <p class="description">Con tablero de herramientas desmontable Medida mesa 80 CM ALTO 60 CM ANCHO
+                        130 CM LARGO Medidas tablero 70 CM alto 130 CM largo </p>
+                    <p class="price">Precio 2450</p>
+                    <a href="https://wa.me/59171793385?text=¡Hola!%20Me%20interesa%20la%20Silla%20Clásica%20de%20Pino."
+                        target="_blank" class="whatsapp-button">
+                        WhatsApp
+                    </a>
+                </div>
+
+                <div class="product-card" data-images='["images/mesa.jpeg", "images/mesa2.jpeg"]'>
+                    <img src="images/mesa.jpeg" alt="Producto 1" loading="lazy">
+                    <h3> MESA DE TRABAJO FORRADO CON PLANCHA GALVANIZADA </h3>
+                    <h4>De alta resistencia listo para empotrar su prensa </h4>
+                    <p class="description">MEDIDAS 80 CM ALTO 120 CM LARGO 70 CM ANCHO </p>
+                    <p class="price"> PRECIO 1500 BS</p>
+                    <a href="https://wa.me/59171793385?text=¡Hola!%20Me%20interesa%20el%20Armario%20a%20Medida."
+                        target="_blank" class="whatsapp-button">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        </div>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; Match taller la mejor en calidad y precio</p>
+        <p>Contacto: info@carpinteriaboliviana.com | Tel: +591 71793385</p>
+    </footer>
+    <!-- script de animaciones y demas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("modal-img");
+            const closeBtn = document.querySelector(".close");
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
+
+            let currentImages = [];
+            let currentIndex = 0;
+
+            // Abrir modal con múltiples imágenes
+            document.querySelectorAll(".product-card").forEach(card => {
+                const imgElement = card.querySelector("img");
+                const images = JSON.parse(card.getAttribute("data-images"));
+
+                imgElement.addEventListener("click", () => {
+                    currentImages = images;
+                    currentIndex = 0;
+                    showImage(currentIndex);
+                    modal.style.display = "flex";
+                });
+            });
+
+            function showImage(index) {
+                modalImg.src = currentImages[index];
+            }
+
+            closeBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            prevBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+                showImage(currentIndex);
+            });
+
+            nextBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % currentImages.length;
+                showImage(currentIndex);
+            });
+
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+
+</body>
+<!-- Modal para ampliar imagen -->
+<div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <button id="prev-btn">&#10094;</button>
+    <img id="modal-img" class="modal-content" src="">
+    <button id="next-btn">&#10095;</button>
+</div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+
+</html>
