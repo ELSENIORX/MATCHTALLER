@@ -134,6 +134,7 @@ body {
 
 
 /* Sección de Catálogo de Productos */
+
 .product-catalog {
     max-width: 1200px;
     margin: 40px auto;
@@ -361,8 +362,9 @@ body {
 }
 
 .product-card {
-    background-color: #2c2c2c; /* Color de fondo más oscuro para las tarjetas */
-    border: 1px solid #555; /* Borde inicial de la tarjeta */
+        background-color: #2c2c2c82;/* Color de fondo más oscuro para las tarjetas */
+    border: 1px solid #55555559;/* Borde inicial de la tarjeta */
+    
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
@@ -379,32 +381,36 @@ body {
 
 .product-card img {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     object-fit: cover;
     border-bottom: 1px solid #444; /* Borde de imagen más oscuro */
     margin-bottom: 15px;
 }
-
 .product-card h3 {
-    font-size: 1.5em;
-    color: #ff7300; /* Color de título amarillo para contraste */
-    margin: 0 15px 10px 15px;
-}
+    color: #f0f0f0;
+        font-size: 1em; /* Título aún más pequeño en móviles */
+        margin: 3px 5px; /* Márgenes mínimos */
+        padding: 0 5px; /* Padding mínimo */
+        line-height: 1.1; /* Interlineado muy compacto */
+        -webkit-line-clamp: 2; /* Mantener 2 líneas */
+    }
 
-.product-card .description {
-    font-size: 0.95em;
-    color: #cccccc; /* Color de descripción más claro */
-    padding: 0 15px;
-    margin-bottom: 15px;
-    min-height: 40px;
-}
+    .product-card .description {
+        color: gray;
+        font-size: 0.75em; /* Descripción más pequeña */
+        margin-bottom: 5px; /* Margen mínimo */
+        padding: 0 5px; /* Padding mínimo */
+        line-height: 1.3; /* Interlineado compacto */
+        -webkit-line-clamp: 3; /* Mantener 3 líneas */
+    }
 
-.product-card .price {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #e67e22; /* Naranja para precios, puede ser #FFFF00 si quieres todo amarillo */
-    margin-bottom: 15px;
-}
+    .product-card .price {
+        color: gold;
+        font-size: 0.95em; /* Precio más pequeño */
+        margin-bottom: 5px; /* Margen mínimo */
+        padding: 0 5px; /* Padding mínimo */
+        line-height: 1; /* Interlineado muy compacto */
+    }
 
 .product-card button {
     /* Estas reglas ya no serán necesarias si solo usas el botón de WhatsApp */
@@ -435,76 +441,243 @@ body {
     margin: 5px 0;
 }
 
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .page-header h1 {
-        font-size: 2em;
+    .nav-links {
+        display: none;
     }
 
-    .product-category h2 {
+    .logo h1 {
         font-size: 1.8em;
     }
 
-    .product-grid {
+    .carousel-text h2 {
+        font-size: 2em;
+    }
+
+    .carousel-text p {
+        font-size: 1.1em;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .product-catalog h2 {
+        font-size: 2em;
+    }
+
+    .product-card img {
+        height: 200px; /* Aumentado para tabletas */
+        margin-bottom: 6px;
+    }
+
+    .product-card h3 {
+        font-size: 1.1em;
+        margin: 3px 8px;
+    }
+
+    .product-card .description {
+        font-size: 0.75em;
+        margin-bottom: 6px;
+    }
+
+    .product-card .price {
+        font-size: 0.95em;
+        margin-bottom: 6px;
+    }
+
+    /* Galería destacada en tabletas */
+    .highlight-gallery .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
 }
 
+
 @media (max-width: 480px) {
-    .page-header {
-        padding: 20px 15px;
-    }
-
-    .page-header h1 {
-        font-size: 1.8em;
-    }
-
-    .page-header p {
-        font-size: 1em;
-    }
-
-    .product-catalog {
-        padding: 0 15px; /* Ajuste para el padding en móviles */
-    }
-
-    .product-category {
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-
-    .product-category h2 {
+    .logo h1 {
         font-size: 1.5em;
-        margin-bottom: 15px;
     }
 
-    .product-grid {
+    .carousel-text h2 {
+        font-size: 1.5em;
+    }
+
+    .carousel-text p {
+        font-size: 0.9em;
+    }
+
+    .hero-carousel {
+        height: 30vh;
+    }
+
+    .products-grid {
         grid-template-columns: 1fr;
         gap: 15px;
     }
 
     .product-card {
         margin: 0 auto;
-        max-width: 300px;
+        max-width: 280px;
+        padding-bottom: 5px;
     }
 
     .product-card img {
-        height: 180px;
+        height: 180px; /* Aumentado para móviles */
+        margin-bottom: 5px;
     }
 
     .product-card h3 {
-        font-size: 1.3em;
+        font-size: 0.9em;
+        margin: 2px 5px;
+        padding: 0 5px;
+        line-height: 1.1;
     }
 
     .product-card .description {
+        font-size: 0.7em;
+        margin-bottom: 4px;
+        padding: 0 5px;
+        line-height: 1.3;
+    }
+
+    .product-card .price {
+        font-size: 0.9em;
+        margin-bottom: 4px;
+        padding: 0 5px;
+        line-height: 1;
+    }
+
+    .product-card .add-to-cart {
+        padding: 6px 10px;
         font-size: 0.9em;
     }
 
-    .product-card button {
-        padding: 8px 15px;
-        font-size: 0.9em;
+  /* Galería destacada en tabletas */
+    .highlight-gallery .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
     }
+    /* Galería destacada en móviles */
+    .highlight-gallery .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .highlight-gallery .gallery-item {
+        max-width: 300px; /* Limita el ancho en móviles si la imagen es muy grande */
+        /* margin: 0 auto; */
+    }
+
 }
+
+/* Estilos para la nueva sección de imágenes destacadas */
+.highlight-gallery {
+    max-width: 1200px;
+    margin: 60px auto; /* Más margen para separarla del contenido anterior */
+    padding: 0 20px;
+    text-align: center;
+    background-color: #1a1a1a; /* Fondo oscuro para contrastar */
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen bien */
+}
+
+.gallery-header {
+    padding: 30px 20px;
+    color: white;
+    background-color: #2a2a2a; /* Ligeramente más claro que el fondo de la galería */
+    border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 30px;
+}
+
+.gallery-header h2 {
+    font-size: 2.8em;
+    color: var(--secondary-color); /* Dorado para el título */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.gallery-header p {
+    font-size: 1.2em;
+    color: #bbb;
+    opacity: 0.9;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Espacio entre las imágenes */
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Ligeramente más grande al pasar el mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Altura fija para todas las imágenes de la galería */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    transition: transform 0.5s ease; /* Transición para el zoom */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Efecto de zoom en la imagen */
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* Degradado sutil */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    transform: translateY(100%); /* Oculto inicialmente */
+    transition: transform 0.3s ease;
+    opacity: 0; /* Oculto inicialmente */
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0); /* Se desliza hacia arriba */
+    opacity: 1; /* Se vuelve visible */
+}
+
+.gallery-item .overlay p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+/* Animaciones al aparecer en pantalla */
+.gallery-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.gallery-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* Nuevo estilo para el botón de WhatsApp, con los estilos originales del botón "Ver Detalles" */
 .whatsapp-button {
@@ -596,7 +769,7 @@ body {
 }
 #prev-btn, #next-btn {
     position: absolute;
-    top: 50%;
+    top: 90%;
     transform: translateY(-50%);
     font-size: 2.5em;
     background-color: rgba(255, 165, 0, 0.8); /* naranja semitransparente */

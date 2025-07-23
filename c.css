@@ -1,0 +1,207 @@
+/* Estilos Generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la vista */
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto; /* Centra el contenedor y agrega margen */
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+}
+
+/* Sección de la Galería de Imágenes */
+.product-image-gallery {
+    flex: 1; /* Ocupa espacio flexible */
+    min-width: 400px; /* Asegura un ancho mínimo para las imágenes */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 500px; /* Tamaño máximo para la imagen principal */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out; /* Animación al hacer hover */
+}
+
+.main-image:hover {
+    transform: scale(1.02);
+}
+
+.thumbnail-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que las miniaturas se envuelvan */
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #eee;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+    border-color: #007bff; /* Color de realce al pasar el mouse o estar activo */
+    transform: translateY(-3px);
+}
+
+/* Sección de Detalles del Producto */
+.product-details {
+    flex: 1; /* Ocupa espacio flexible */
+    min-width: 450px; /* Asegura un ancho mínimo para los detalles */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-title {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.product-price {
+    font-size: 2em;
+    color: #28a745; /* Color verde para el precio */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.product-features {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.product-features li {
+    background: url('check-icon.png') no-repeat left center; /* O usa un icono SVG o FontAwesome */
+    background-size: 18px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #444;
+}
+
+/* Para el icono de check, puedes usar un SVG en línea o un icono de librería */
+/* Si no tienes un check-icon.png, puedes usar: */
+/* .product-features li::before {
+    content: '✔';
+    color: #28a745;
+    margin-right: 10px;
+    font-weight: bold;
+} */
+
+
+.add-to-cart-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: fit-content; /* El botón se ajusta a su contenido */
+    margin-bottom: 20px;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.product-meta {
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.product-meta span {
+    margin-right: 15px;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 900px) {
+    .product-container {
+        flex-direction: column; /* Apila las secciones verticalmente */
+        max-width: 600px;
+    }
+
+    .product-image-gallery,
+    .product-details {
+        min-width: unset; /* Elimina el ancho mínimo para pantallas pequeñas */
+        width: 100%;
+        padding: 20px;
+    }
+
+    .product-title {
+        font-size: 2em;
+    }
+
+    .product-price {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .product-image-gallery {
+        padding: 15px;
+    }
+
+    .product-details {
+        padding: 15px;
+    }
+
+    .product-title {
+        font-size: 1.8em;
+    }
+
+    .product-price {
+        font-size: 1.6em;
+    }
+
+    .add-to-cart-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
